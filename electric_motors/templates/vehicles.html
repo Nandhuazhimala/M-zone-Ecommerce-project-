@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    {% include "includes/usual_content/banner/other_page/banner.html" %}
+    {% include "includes/usual_content/Marquee_effect/effect_1.html" %}
+
+    <!-- Latest Veicles details-->
+    <section>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 text-center">
+                    <div class="bg-grey p-4 rounded-20px relative hover text-center">
+                        <a href="{% url 'Vehicles_Data' %}">
+                            <img src="{% static 'images/misc/4.webp' %}" class="w-100 relative z-1000 hover-scale-1-2" alt="no image">
+                            <img src="{% static 'images/misc/10.webp' %}" class="absolute start-10 top-10 w-20" alt="no image">
+                        </a>
+
+                        <div class="row mt-3 g-2 relative z-1000">
+                            <div class="col-4">
+                                <div class="bg-white rounded-5px lh-1-2em py-2">
+                                    <div class="fw-bold text-dark">100 KM</div>
+                                    <div class="fs-14">Range</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-white rounded-5px lh-1-2em py-2">
+                                    <div class="fw-bold text-dark">70 Km/h</div>
+                                    <div class="fs-14">Top Speed</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-white rounded-5px lh-1-2em py-2">
+                                    <div class="fw-bold text-dark">3000 Watt</div>
+                                    <div class="fs-14">Motor Power</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute w-100 h-100 start-0 top-0 rounded-10px hover-bg-color"></div>
+                    </div>                            
+                    <h4 class="mt-3 mb-1">Mzone R100</h4>
+                                             
+                    
+
+                    <a class="btn-main" href="https://wa.me/919961467400">Whatsapp Now</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="bg-grey p-4 rounded-20px relative hover text-center">
+                        <a href="{% url 'Vehicles_Data' %}">
+                            <img src="{% static 'images/misc/m2.webp' %}" class="w-100 relative z-1000 hover-scale-1-2" alt="no image">
+                            <img src="{% static 'images/misc/10.webp' %}" class="absolute start-10 top-10 w-20" alt="no image">
+                        </a>
+
+                        <div class="row mt-3 g-2 relative z-1000">
+                            <div class="col-4">
+                                <div class="bg-white rounded-5px lh-1-2em py-2">
+                                    <div class="fw-bold text-dark">130 KM</div>
+                                    <div class="fs-14">Range</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-white rounded-5px lh-1-2em py-2">
+                                    <div class="fw-bold text-dark">100 Km/h</div>
+                                    <div class="fs-14">Top Speed</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-white rounded-5px lh-1-2em py-2">
+                                    <div class="fw-bold text-dark">3500 Watt</div>
+                                    <div class="fs-14">Motor Power</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute w-100 h-100 start-0 top-0 rounded-10px hover-bg-color"></div>
+                    </div>
+                    <h4 class="mt-3 mb-1"><span class="bg-color me-2 fs-16 px-2 rounded-5px text-uppercase anim-op-blink-to-light">New</span>Mzone R200</h4>
+                    
+                    
+
+                    <a class="btn-main" href="https://wa.me/919961467400">Whatsapp Now</a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="bg-grey p-4 rounded-20px relative hover text-center">
+                        <a href="{% url 'Vehicles_Data' %}">
+                            <img src="{% static 'images/misc/m3.webp' %}" class="w-100 relative z-1000 hover-scale-1-2" alt="no image">
+                            <img src="{% static 'images/misc/10.webp' %}" class="absolute start-10 top-10 w-20" alt="no image">
+                        </a>
+
+                        <div class="row mt-3 g-2 relative z-1000">
+                            <div class="col-4">
+                                <div class="bg-white rounded-5px lh-1-2em py-2">
+                                    <div class="fw-bold text-dark">150 KM</div>
+                                    <div class="fs-14">Range</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-white rounded-5px lh-1-2em py-2">
+                                    <div class="fw-bold text-dark">120 Km/h</div>
+                                    <div class="fs-14">Top Speed</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-white rounded-5px lh-1-2em py-2">
+                                    <div class="fw-bold text-dark">4000 Watt</div>
+                                    <div class="fs-14">Motor Power</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute w-100 h-100 start-0 top-0 rounded-10px hover-bg-color"></div>
+                    </div>
+                    <h4 class="mt-3 mb-1">Mzone R300</h4>
+                    
+                    
+
+                    <a class="btn-main" href="https://wa.me/919961467400">Whatsapp Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+{% endblock content %}

@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Banner Section start-->
+        <section id="subheader" class="jarallax text-light bg-dark">
+            <img src="{% static 'images/background/5.webp' %}" class="jarallax-img" alt="no image">
+            <div class="container relative z-index-1000">
+                <div class="container relative z-index-1000">
+                    <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <h5 class=" wow fadeInUp mb-2"><span class="id-color">Mzone R300</span></h5>
+                        <h1>Ride the Future: Silent, Smooth, Electric</h1>
+
+                        <div class="row mt-3 g-2 text-center">
+                            <div class="col-4">
+                                <div class="bg-dark rounded-10px lh-1-2em p-2">
+                                    <i class="fs-40 mb-1 id-color icofont-map-pins"></i>
+                                    <div class="fs-18 fw-bold">100 KM</div>
+                                    <div class="fs-14 op-5">Range</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-dark rounded-10px lh-1-2em p-2">
+                                    <i class="fs-40 mb-1 id-color icofont-dashboard"></i>
+                                    <div class="fs-18 fw-bold">70 Km/h</div>
+                                    <div class="fs-14 op-5">Top Speed</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-dark rounded-10px lh-1-2em p-2">
+                                    <i class="fs-40 mb-1 id-color icofont-thunder-light"></i>
+                                    <div class="fs-18 fw-bold">3000 Watt</div>
+                                    <div class="fs-14 op-5">Motor Power</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+    <!-- Banner Section end-->
+
+    <!-- Vehicle description Section start-->
+        <section>
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="subtitle bg-grey text-dark wow fadeInUp mb-3">Spark Change</div>
+                        <h2 class="mb-0">Detailed Features</h2>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-lg-6 ">
+                        <div class="relative">
+                            <img src="{% static 'images/misc/m1.webp' %}" class="img-fluid wow scaleIn" alt="no image">
+                        </div>
+                    </div>
+                    <div class="col-md-6  wow fadeInUp">
+                        <div class="accordion">
+                            <div class="accordion-section" style="background-size: cover; background-repeat: no-repeat;">
+                                <div class="accordion-section-title active" data-tab="#accordion-1" style="background-size: cover; background-repeat: no-repeat;">
+                                    <h4 class="mb-0 d-inline">Motor</h4>
+                                </div>
+                                <div class="accordion-section-content" id="accordion-1" style="background-size: cover; background-repeat: no-repeat; display: block;">
+                                    <ul>
+                                    <li>Type: Brushless DC motor</li>
+                                    <li>Power: 40 kW (53 hp)</li>
+                                    <li>Torque: 85 Nm</li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- Vehicle description Section end-->
+
+    <!-- Vehicle advance features Section start-->
+    <section>
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-12 text-center">
+                    <div class="subtitle bg-grey text-dark wow fadeInUp mb-3">Spark Change</div>
+                    <h2 class="mb-0">Advanced Features</h2>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-4">
+                    <div class="mb-4 relative wow fadeInRight" data-wow-delay=".3s">
+                        <div class="absolute top-0 end-0">01</div>
+                        <i class="bg-color text-light fs-48 p-2 absolute id-color icofont-thunder-light rounded-10px"></i>
+                        <div class="pl-90">
+                            <h4>Electric Drive</h4>
+                            <p class="mb-0">Sunt dolor aliquip consectetur laborum incididunt tempor irure veniam amet et nostrud.</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 relative wow fadeInRight" data-wow-delay=".5s">
+                        <div class="absolute top-0 end-0">02</div>
+                        <i class="bg-dark text-light fs-48 p-2 absolute id-color icofont-volume-mute rounded-10px"></i>
+                        <div class="pl-90">
+                            <h4>Silent Power</h4>
+                            <p class="mb-0">Sunt dolor aliquip consectetur laborum incididunt tempor irure veniam amet et nostrud.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'images/misc/6.webp' %}" class="img-fluid wow scaleIn" alt="no image">
+                </div>
+                <div class="col-lg-4">
+                    <div class="mb-4 relative wow fadeInLeft" data-wow-delay=".3s">
+                        <div class="absolute top-0 start-0">03</div>
+                        <i class="bg-color text-light fs-48 p-2 absolute end-0 id-color icofont-leaf rounded-10px"></i>
+                        <div class="pr-90">
+                            <h4 class="text-end">Zero Emissions</h4>
+                            <p class="text-end mb-0">Sunt dolor aliquip consectetur laborum incididunt tempor irure veniam amet et nostrud.</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 relative wow fadeInLeft" data-wow-delay=".3s">
+                        <div class="absolute top-0 start-0">04</div>
+                        <i class="bg-dark text-light fs-48 p-2 absolute end-0 id-color icofont-road rounded-10px"></i>
+                        <div class="pr-90">
+                            <h4 class="text-end">Longer Range</h4>
+                            <p class="text-end mb-0">Sunt dolor aliquip consectetur laborum incididunt tempor irure veniam amet et nostrud.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Vehicle advance features Section end-->
+
+    <!-- Vehicle test frive booking Section start-->
+    <section class="bg-color text-light pt40 pb40">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-9">
+                    <h3 class="mb-1">Ready to drive into the future?</h3>
+                </div>
+
+                <div class="col-lg-3 text-lg-end text-start">
+                    <a class="btn-main bg-dark" href="{% url 'Contact_Us' %}">Book a Test Drive</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Vehicle test frive booking Section end-->
+
+
+
+{% endblock content %}
+
+
+

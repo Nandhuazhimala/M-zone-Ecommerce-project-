@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    {% include "includes/usual_content/banner/other_page/banner.html" %}
+
+    <!-- blog section start -->
+        <section class="no-top" style="margin-top:50px;">
+            <div class="container">
+                <div class="row gx-5">
+                    <div class="col-lg-8">
+                        <div class="blog-read">
+                            <div class="post-text">
+                                <h3>Leading the Charge for Unmatched Excellence.</h3>
+                                <p>Quis sunt quis do laboris eiusmod in sint dolore sit pariatur consequat commodo aliqua nulla ad dolor aliquip incididunt voluptate est aliquip adipisicing ea cupidatat nostrud incididunt aliquip dolore. Sed minim nisi duis laborum est labore nisi amet elit adipisicing proident do consectetur dolor labore sit nisi ad proident esse ad velit nisi irure reprehenderit ut et dolor labore veniam quis.</p>
+                                <p>Sunt duis laboris ex et quis laborum laborum cillum mollit voluptate culpa consequat ex cupidatat dolor eiusmod proident proident cillum pariatur sint adipisicing in nostrud do dolore consectetur quis incididunt minim consectetur. Exercitation elit proident dolor est id eiusmod dolor dolor incididunt ad voluptate laboris cupidatat est est sint veniam sint officia sint incididunt est sit ut tempor commodo pariatur ut proident et do.</p>
+                                <p>Sed eu in ut sint dolor irure fugiat minim veniam sed ea proident ullamco occaecat irure ut velit eu ullamco fugiat cupidatat dolore fugiat. Lorem ipsum id non deserunt id consequat duis voluptate amet aliqua pariatur laboris officia pariatur veniam velit reprehenderit sint nostrud cupidatat magna eiusmod mollit exercitation pariatur nulla minim laboris dolore aliqua consectetur cillum duis aute consectetur.</p>
+                            </div>
+                        </div>
+                        <div class="spacer-single"></div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="widget widget-post">
+                            <h4>Popular Posts</h4>
+                            <ul class="de-bloglist-type-1">
+                                <li>
+                                    <div class="d-image">
+                                        <img src="{% static 'images/news-thumbnail/1.webp' %}" alt="no image">
+                                    </div>
+                                    <div class="d-content">
+                                        <a href="{%  url 'Blog_Data' %}"><h4>New Study Reveals Surprising Benefits of Electric Vehicles for Urban Air Quality</h4></a>
+                                        <div class="d-date">January 15, 2023</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-image">
+                                        <img src="{% static 'images/news-thumbnail/2.webp' %}" alt="no image">
+                                    </div>
+                                    <div class="d-content">
+                                        <a href="{%  url 'Blog_Data' %}"><h4>Major Automakers Unveil Next Generation of Electric Vehicles at International Expo</h4></a>
+                                        <div class="d-date">January 15, 2023</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- blog section end -->
+    
+{% endblock content %}
+

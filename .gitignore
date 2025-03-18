@@ -175,3 +175,4 @@ mzone
 
 # django project
 manage.py
+static

@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% include "includes/usual_content/banner/other_page/banner.html" %}
+
+    <!-- News Slidbar section start-->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- blog 1 begin -->
+                    <div class="mb-4 pb-4 border-bottom">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-md-6">
+                                <div class="post-image relative rounded-20px hover">
+                                    <div class="d-inline bg-color text-white absolute text-center fw-bold rounded-10px start-0 mt-4 ms-4 p-3 pb-2">
+                                        <span class="fs-32">20</span>
+                                        <span class="d-block fs-16 text-uppercase">May</span>
+                                    </div>
+                                    <img alt="no image" src="{% static 'images/news/1.webp' %}" class="hover-scale-1-1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <img src="{% static 'images/testimonial/1.jpg' %}" class="w-20px me-2 circle" alt="no image">
+                                    <div class="d-inline fs-14 fw-bold me-3">Brunilda Doniger</div>
+                                    <div class="d-inline fs-14 fw-600"><i class="icofont-ui-calendar id-color me-2"></i>21 Mar 2024</div>
+                                </div>
+                                <h3><a class="text-dark" href="{%  url 'Blog_Data' %}">Consumer Adoption Surges as Electric Vehicle Prices Drop and Performance Improves</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- blog 1 end -->
+
+                    <!-- blog 2 begin -->
+                    <div class="mb-4 pb-4 border-bottom">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-md-6">
+                                <div class="post-image relative rounded-20px hover">
+                                    <div class="d-inline bg-color text-white absolute text-center fw-bold rounded-10px start-0 mt-4 ms-4 p-3 pb-2">
+                                        <span class="fs-32">20</span>
+                                        <span class="d-block fs-16 text-uppercase">May</span>
+                                    </div>
+                                    <img alt="no image" src="{% static 'images/news/2.webp' %}" class="hover-scale-1-1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <img src="{% static 'images/testimonial/2.jpg' %}" class="w-20px me-2 circle" alt="no image">
+                                    <div class="d-inline fs-14 fw-bold me-3">Brunilda Doniger</div>
+                                    <div class="d-inline fs-14 fw-600"><i class="icofont-ui-calendar id-color me-2"></i>22 Mar 2024</div>
+                                </div>
+                                <h3><a class="text-dark" href="{%  url 'Blog_Data' %}">Consumer Adoption Surges as Electric Vehicle Prices Drop and Performance Improves</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- blog 2 end -->
+
+                    <!-- blog 3 begin -->
+                    <div class="mb-4 pb-4 border-bottom">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-md-6">
+                                <div class="post-image relative rounded-20px hover">
+                                    <div class="d-inline bg-color text-white absolute text-center fw-bold rounded-10px start-0 mt-4 ms-4 p-3 pb-2">
+                                        <span class="fs-32">20</span>
+                                        <span class="d-block fs-16 text-uppercase">May</span>
+                                    </div>
+                                    <img alt="no image" src="{% static 'images/news/5.webp' %}" class="hover-scale-1-1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <img src="{% static 'images/testimonial/5.jpg' %}" class="w-20px me-2 circle" alt="no image">
+                                    <div class="d-inline fs-14 fw-bold me-3">Brunilda Doniger</div>
+                                    <div class="d-inline fs-14 fw-600"><i class="icofont-ui-calendar id-color me-2"></i>25 Mar 2024</div>
+                                </div>
+                                <h3><a class="text-dark" href="{%  url 'Blog_Data' %}">Consumer Adoption Surges as Electric Vehicle Prices Drop and Performance Improves</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- blog 3 end -->
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="widget widget-post">
+                        <h4>Popular Posts</h4>
+                        <ul class="de-bloglist-type-1">
+                            <li>
+                                <div class="d-image">
+                                    <img src="{% static 'images/news-thumbnail/1.webp' %}" alt="no image">
+                                </div>
+                                <div class="d-content">
+                                    <a href="{%  url 'Blog_Data' %}"><h4>New Study Reveals Surprising Benefits of Electric Vehicles for Urban Air Quality</h4></a>
+                                    <div class="d-date">January 15, 2023</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-image">
+                                    <img src="{% static 'images/news-thumbnail/2.webp' %}" alt="no image">
+                                </div>
+                                <div class="d-content">
+                                    <a href="{%  url 'Blog_Data' %}"><h4>Major Automakers Unveil Next Generation of Electric Vehicles at International Expo</h4></a>
+                                    <div class="d-date">January 15, 2023</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-image">
+                                    <img src="{% static 'images/news-thumbnail/3.webp' %}" alt="no image">
+                                </div>
+                                <div class="d-content">
+                                    <a href="{%  url 'Blog_Data' %}"><h4>Electric Vehicle Range Breakthrough: Mileage on Single Charge Surpasses 500 Miles</h4></a>
+                                    <div class="d-date">January 15, 2023</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-image">
+                                    <img src="{% static 'images/news-thumbnail/4.webp' %}" alt="no image">
+                                </div>
+                                <div class="d-content">
+                                    <a href="{%  url 'Blog_Data' %}"><h4>Investment Boom: Billions Poured into Electric Vehicle Battery Technology Research</h4></a>
+                                    <div class="d-date">January 15, 2023</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- News Slidbar section end-->
+
+{% endblock content %}
+
+
+
