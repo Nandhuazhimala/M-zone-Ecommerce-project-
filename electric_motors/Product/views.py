@@ -1,24 +1,53 @@
 from django.shortcuts import render
+from . models import *
 
 # Create your views here.
 
 def home(request):
-    return render(request,'index.html')
+    vehicle_data=Vehicles.objects.all()
+    context={
+        'vehicle_data':vehicle_data
+    }
+    return render(request,'index.html',context)
 
 def about(request):
-    return render(request,'about.html')
+    vehicle_data=Vehicles.objects.all()
+    context={
+        'vehicle_data':vehicle_data
+    }
+    return render(request,'about.html',context)
 
 def vehicles(request):
-    return render(request,'vehicles.html')
+    vehicle_data=Vehicles.objects.all()
+    context={
+        'vehicle_data':vehicle_data
+    }
+    return render(request,'vehicles.html',context)
 
 def vehicle_data(request):
-    return render(request,'vehicle_details.html')
+    vehicle_data=Vehicles.objects.all()
+    context={
+        'vehicle_data':vehicle_data
+    }
+    return render(request,'vehicle_details.html',context)
 
 def contact(request):
-    return render(request,'contact.html')
+    vehicle_data=Vehicles.objects.all()
+    context={
+        'vehicle_data':vehicle_data
+    }
+    return render(request,'contact.html',context)
 
 def news(request):
-    return render(request,'news_slidbar.html')
+    vehicle_data=Vehicles.objects.all()
+    context={
+        'vehicle_data':vehicle_data
+    }
+    return render(request,'news_slidbar.html',context)
 
 def blog(request):
-    return render(request,'includes/blog/blog_data.html')
+    vehicle_data=Vehicles.objects.all()
+    context={
+        'vehicle_data':vehicle_data
+    }
+    return render(request,'includes/blog/blog_data.html',context)

@@ -35,10 +35,13 @@
                         <div class="widget">
                             <h5>Our Products</h5>
                             <ul>
-                                <li><a href="{% url 'Vehicles_Data' %}">Mzone R100</a></li>
-                                <li><a href="{% url 'Vehicles_Data' %}">Mzone R200</a></li>
+                                {% for data in vehicle_data %}
+                                    <li><a href="{% url 'Vehicles_Data' %}">{{data.vehicle_name}}</a></li>
+                                {% endfor %}
+                                
+                                {% comment %} <li><a href="{% url 'Vehicles_Data' %}">Mzone R200</a></li>
                                 <li><a href="{% url 'Vehicles_Data' %}">Mzone R300</a></li>
-                                <li><a href="{% url 'Vehicles_Data' %}">Mzone R600</a></li>
+                                <li><a href="{% url 'Vehicles_Data' %}">Mzone R600</a></li> {% endcomment %}
                                 
                             </ul>
                         </div>

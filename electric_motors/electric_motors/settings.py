@@ -76,13 +76,14 @@ WSGI_APPLICATION = 'electric_motors.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+    
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Mzone_project',  # database name
-        'USER': 'postgres',  
-        'PASSWORD': '123456',  
-        'HOST': 'localhost',  
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mzone',      # Replace with your database name
+        'USER': 'root',         # Replace with your MySQL user
+        'PASSWORD': 'Nandakumar@97', # Replace with your MySQL password
+        'HOST': 'localhost',      # Default host
+        'PORT': '3306',           # Default port
     }
 }
 
