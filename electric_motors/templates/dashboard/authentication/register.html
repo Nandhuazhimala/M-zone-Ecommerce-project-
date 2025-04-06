@@ -1,0 +1,76 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- navbar section start -->
+    {% include "dashboard/includes/admin_navbar.html" %}
+<!-- navbar section end -->
+    
+<!-- Register section start -->
+    <main class="d-flex align-items-center justify-content-center min-vh-100 py-4">
+        <div class="auth-container">
+            <div class="card-bg shadow p-5 border-0 rounded-4" style="max-width: 450px; margin: auto;">
+                <div class="text-center">
+                    <img class="mb-3" src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" width="120px">
+                    <h2 class="fw-bold text-white">Create an Account</h2>
+                    <p class="custom-text-muted">Join Mzone today!</p>
+                </div>
+
+                <form action="{% url 'Admin_Register' %}" method="POST" >
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label text-white">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="full_name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label text-white">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label text-white">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirm-password" class="form-label text-white">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm-password" name="confirm_password" placeholder="Re-enter your password" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="profile-image" class="form-label text-white">Upload Profile Picture</label>
+                        <input type="file" class="form-control" id="profile-image" name="profile_image" accept="image/*" required>
+                    </div>
+
+                    <button class="btn btn-primary w-100 py-2">Register</button>
+
+                    <div class="text-center mt-3">
+                        <p class="custom-text-muted">Already have an account? <a href="{% url 'Admin_Login' %}" class="custom-text-primary">Sign in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+<!-- Register section ends -->
+
+{% endblock content %}
+
+{% block custom_js %}
+
+{% for message in messages %}
+    <script>
+        window.onload = function(){
+            alert('{{message}}')
+        }
+    </script>
+{% endfor %}
+
+{% endblock %}
+
+{% comment %} <div class="form-check mb-3">
+    <input type="checkbox" class="form-check-input" id="terms" name="terms_agreement" required>
+    <label class="form-check-label text-white" for="terms">
+        I agree to the <a href="#" class="custom-text-primary">Terms & Conditions</a>
+    </label>
+</div> {% endcomment %}

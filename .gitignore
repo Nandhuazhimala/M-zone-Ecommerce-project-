@@ -176,3 +176,5 @@ mzone
 # django project
 manage.py
 static
+migrations
+media

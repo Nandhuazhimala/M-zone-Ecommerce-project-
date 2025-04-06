@@ -1,0 +1,47 @@
+{% load static %}
+<!-- navbar section start -->
+<nav class="navbar navbar-expand px-4 py-3">
+    <form action="#" class="d-none d-sm-inline-block">
+        <div class="input-group input-group-navbar">
+            <input type="text" class="form-control border-0 rounded-0 pe-0" placeholder="Search" aria-label="Search">
+            <button class="btn border-0 rounded-0" type="button">
+                <i class='bx bx-search' ></i>
+            </button>
+        </div>
+    </form>
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ms-auto">
+            <div class="nav-item dropdown">
+                <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                    {% if data and data.profile_picture %}
+                        <img src="{{ data.profile_picture.url }}" alt="Profile Picture" class="avatar img-fluid">
+                    {% else %}
+                        <img src="{% static 'admin_panel/images/default.jpg' %}" alt="No image" class="avatar img-fluid">
+                    {% endif %}
+                    <span class="d-none d-md-inline text-dark fw-bold ms-2">
+                        {{ data.user.username }}
+                    </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
+                    {% comment %} <a href="#" class="dropdown-item">
+                        <i class='bx bx-data' ></i>
+                        <span>Analytics</span>
+                    </a> {% endcomment %}
+                    <a href="#" class="dropdown-item">
+                        <i class='bx bx-cog' ></i>
+                        <span>Setting</span>
+                    </a>
+                    <a href="{% url 'Admin_logout' %}" class="dropdown-item">
+                        <i class='bx bx-log-out' ></i>
+                        <span>Logout</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class='bx bx-help-circle' ></i>
+                        <span>Help Center</span>
+                    </a>
+                </div>
+            </div>
+        </ul>
+    </div>
+ </nav>

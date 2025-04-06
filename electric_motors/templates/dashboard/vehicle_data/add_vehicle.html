@@ -1,0 +1,229 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+    <!-- Form starts here -->
+    
+    {% comment %} <main class="d-flex align-items-center justify-content-center min-vh-100 py-4">
+        <div class="vehicle-form-container w-100">
+            <div class="card shadow-lg p-5 border-0 rounded-4" style="max-width: 100%; margin: auto; background: linear-gradient(to right, #6a11cb, #2575fc);">
+                <div class="text-center mb-4">
+                    <img class="mb-3" src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" width="120px">
+                    <h2 class="fw-bold text-light">Add a New Vehicle</h2>
+                    <p class="text-light opacity-75">Fill in the details to add a new vehicle.</p>
+                </div>
+    
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        <div class="live_preview">
+                            <div class="row gy-4">
+                                <!-- Vehicle Name -->
+                     <div class="col-xxl-4 col-md-6">
+                        <label for="vehicle_name" class="form-label text-light">Vehicle Name</label>
+                        <input type="text" class="form-control form-control-lg" id="vehicle_name" name="vehicle_name" placeholder="Enter vehicle name" required>
+                    </div>
+    
+                    <!-- Vehicle Short Title -->
+                     <div class="col-xxl-8 col-md-6">
+                        <label for="vehicle_short_title" class="form-label text-light">Short Title</label>
+                        <input type="text" class="form-control form-control-lg" id="vehicle_short_title" name="vehicle_short_title" placeholder="Enter short title" required>
+                    </div>
+    
+                    <!-- Vehicle Image -->
+                     <div class="col-xxl-5 col-md-6">
+                        <label for="vehicle_image" class="form-label text-light">Vehicle Image</label>
+                        <input type="file" class="form-control form-control-lg" id="vehicle_image" name="vehicle_image" required>
+                    </div>
+    
+                    <!-- Product Short Description -->
+                     <div class="col-xxl-7 col-md-6">
+                        <label for="vehicle_product_short_desc" class="form-label text-light">Short Description</label>
+                        <input type="text" class="form-control form-control-lg" id="vehicle_product_short_desc" name="vehicle_product_short_desc" placeholder="Enter short description" required>
+                    </div>
+    
+                    <!-- Vehicle Range -->
+                     <div class="col-xxl-4 col-md-6">
+                        <label for="vehicle_range" class="form-label text-light">Vehicle Range (km)</label>
+                        <input type="number" class="form-control form-control-lg" id="vehicle_range" name="vehicle_range" placeholder="Enter vehicle range" required>
+                    </div>
+    
+                    <!-- Top Speed -->
+                     <div class="col-xxl-4 col-md-6">
+                        <label for="vehicle_top_speed" class="form-label text-light">Top Speed (km/h)</label>
+                        <input type="number" class="form-control form-control-lg" id="vehicle_top_speed" name="vehicle_top_speed" placeholder="Enter top speed" required>
+                    </div>
+    
+                    <!-- Motor Power -->
+                     <div class="col-xxl-4 col-md-6">
+                        <label for="vehicle_motor_power" class="form-label text-light">Motor Power (kW)</label>
+                        <input type="number" class="form-control form-control-lg" id="vehicle_motor_power" name="vehicle_motor_power" placeholder="Enter motor power" required>
+                    </div>
+    
+                    <!-- Horsepower -->
+                     <div class="col-xxl-4 col-md-6">
+                        <label for="vehicle_horsepower" class="form-label text-light">Horsepower</label>
+                        <input type="number" class="form-control form-control-lg" id="vehicle_horsepower" name="vehicle_horsepower" placeholder="Enter horsepower" required>
+                    </div>
+    
+                    <!-- Torque -->
+                     <div class="col-xxl-4 col-md-6">
+                        <label for="vehicle_torque" class="form-label text-light">Torque (Nm)</label>
+                        <input type="number" class="form-control form-control-lg" id="vehicle_torque" name="vehicle_torque" placeholder="Enter torque" required>
+                    </div>
+    
+                    <!-- Vehicle Features -->
+                     <div class="col-xxl-6 col-md-6">
+                        <label for="vehicle_feature_1" class="form-label text-light">Feature 1</label>
+                        <input type="text" class="form-control form-control-lg" id="vehicle_feature_1" name="vehicle_feature_1" placeholder="Enter feature 1" required>
+                    </div>
+    
+                     <div class="col-xxl-6 col-md-6">
+                        <label for="vehicle_feature_2" class="form-label text-light">Feature 2</label>
+                        <input type="text" class="form-control form-control-lg" id="vehicle_feature_2" name="vehicle_feature_2" placeholder="Enter feature 2" required>
+                    </div>
+    
+                     <div class="col-xxl-6 col-md-6">
+                        <label for="vehicle_feature_3" class="form-label text-light">Feature 3</label>
+                        <input type="text" class="form-control form-control-lg" id="vehicle_feature_3" name="vehicle_feature_3" placeholder="Enter feature 3" required>
+                    </div>
+    
+                     <div class="col-xxl-6 col-md-6">
+                        <label for="vehicle_feature_4" class="form-label text-light">Feature 4</label>
+                        <input type="text" class="form-control form-control-lg" id="vehicle_feature_4" name="vehicle_feature_4" placeholder="Enter feature 4" required>
+                    </div>
+    
+                    <!-- Vehicle Status -->
+                     <div class="col-xxl-6 col-md-6">
+                        <label for="vehicle_status" class="form-label text-light">Status</label>
+                        <input type="checkbox" class="form-check-input" id="vehicle_status" name="vehicle_status" placeholder="Enter vehicle status" required>
+                    </div>
+    
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary"  name="sub">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main> {% endcomment %}
+    <main class="d-flex align-items-center justify-content-center min-vh-100 ">
+        <div class="vehicle-form-container w-100">
+            <div class="card-bg shadow-lg p-5 border-0 rounded-4 vehicle-form-card">
+                <div class="text-center mb-4">
+                    <img class="mb-3" src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" width="120px">
+                    <h2 class="fw-bold vehicle-form-heading">Add a New Vehicle</h2>
+                </div>
+    
+                <form action="{% url 'Add_Vehicle' %}" method="POST" class="vehicle-form">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        <div class="live_preview">
+                            <div class="row gy-4">
+                                <!-- Vehicle Name -->
+                                <div class="col-xxl-4 col-md-6">
+                                    <label for="vehicle_name" class="form-label vehicle-form-label">Vehicle Name</label>
+                                    <input type="text" class="form-control form-control-lg vehicle-input" id="vehicle_name" name="vehicle_name" placeholder="Enter vehicle name" required>
+                                </div>
+    
+                                <!-- Vehicle Short Title -->
+                                <div class="col-xxl-8 col-md-6">
+                                    <label for="vehicle_short_title" class="form-label vehicle-form-label">Short Title</label>
+                                    <input type="text" class="form-control form-control-lg vehicle-input" id="vehicle_short_title" name="vehicle_short_title" placeholder="Enter short title" required>
+                                </div>
+    
+                                <!-- Vehicle Image -->
+                                <div class="col-xxl-5 col-md-6">
+                                    <label for="vehicle_image" class="form-label vehicle-form-label">Vehicle Image</label>
+                                    <input type="file" class="form-control form-control-lg vehicle-input" id="vehicle_image" name="vehicle_image" required>
+                                </div>
+    
+                                <!-- Product Short Description -->
+                                <div class="col-xxl-7 col-md-6">
+                                    <label for="vehicle_product_short_desc" class="form-label vehicle-form-label">Short Description</label>
+                                    <input type="text" class="form-control form-control-lg vehicle-input" id="vehicle_product_short_desc" name="vehicle_product_short_desc" placeholder="Enter short description" required>
+                                </div>
+    
+                                <!-- Vehicle Range -->
+                                <div class="col-xxl-4 col-md-6">
+                                    <label for="vehicle_range" class="form-label vehicle-form-label">Vehicle Range (km)</label>
+                                    <input type="number" class="form-control form-control-lg vehicle-input" id="vehicle_range" name="vehicle_range" placeholder="Enter vehicle range" required>
+                                </div>
+    
+                                <!-- Top Speed -->
+                                <div class="col-xxl-4 col-md-6">
+                                    <label for="vehicle_top_speed" class="form-label vehicle-form-label">Top Speed (km/h)</label>
+                                    <input type="number" class="form-control form-control-lg vehicle-input" id="vehicle_top_speed" name="vehicle_top_speed" placeholder="Enter top speed" required>
+                                </div>
+    
+                                <!-- Motor Power -->
+                                <div class="col-xxl-4 col-md-6">
+                                    <label for="vehicle_motor_power" class="form-label vehicle-form-label">Motor Power (kW)</label>
+                                    <input type="number" class="form-control form-control-lg vehicle-input" id="vehicle_motor_power" name="vehicle_motor_power" placeholder="Enter motor power" required>
+                                </div>
+    
+                                <!-- Horsepower -->
+                                <div class="col-xxl-4 col-md-6">
+                                    <label for="vehicle_horsepower" class="form-label vehicle-form-label">Horsepower</label>
+                                    <input type="number" class="form-control form-control-lg vehicle-input" id="vehicle_horsepower" name="vehicle_horsepower" placeholder="Enter horsepower" required>
+                                </div>
+    
+                                <!-- Torque -->
+                                <div class="col-xxl-4 col-md-6">
+                                    <label for="vehicle_torque" class="form-label vehicle-form-label">Torque (Nm)</label>
+                                    <input type="number" class="form-control form-control-lg vehicle-input" id="vehicle_torque" name="vehicle_torque" placeholder="Enter torque" required>
+                                </div>
+    
+                                <!-- Vehicle Features -->
+                                <div class="col-xxl-6 col-md-6">
+                                    <label for="vehicle_feature_1" class="form-label vehicle-form-label">Feature 1</label>
+                                    <input type="text" class="form-control form-control-lg vehicle-input" id="vehicle_feature_1" name="vehicle_feature_1" placeholder="Enter feature 1" required>
+                                </div>
+    
+                                <div class="col-xxl-6 col-md-6">
+                                    <label for="vehicle_feature_2" class="form-label vehicle-form-label">Feature 2</label>
+                                    <input type="text" class="form-control form-control-lg vehicle-input" id="vehicle_feature_2" name="vehicle_feature_2" placeholder="Enter feature 2" required>
+                                </div>
+    
+                                <div class="col-xxl-6 col-md-6">
+                                    <label for="vehicle_feature_3" class="form-label vehicle-form-label">Feature 3</label>
+                                    <input type="text" class="form-control form-control-lg vehicle-input" id="vehicle_feature_3" name="vehicle_feature_3" placeholder="Enter feature 3" required>
+                                </div>
+    
+                                <div class="col-xxl-6 col-md-6">
+                                    <label for="vehicle_feature_4" class="form-label vehicle-form-label">Feature 4</label>
+                                    <input type="text" class="form-control form-control-lg vehicle-input" id="vehicle_feature_4" name="vehicle_feature_4" placeholder="Enter feature 4" required>
+                                </div>
+    
+                                <!-- Vehicle Status -->
+                                <div class="col-xxl-6 col-md-6">
+                                    <label for="vehicle_status" class="form-label vehicle-form-label" >Status</label>
+                                    <input type="checkbox" class="form-check-input vehicle-input pl-3" id="vehicle_status" name="vehicle_status" required>
+                                </div>
+    
+                                <!-- Submit Button -->
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary vehicle-submit-btn" name="sub">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+{% endblock content %}
+{% block custom_js %}
+    {% for message in messages %}
+        <script>
+            window.onload = function(){
+                alert('{{message}}')
+            }
+        </script>
+    {% endfor %}
+
+{% endblock custom_js %}

@@ -1,0 +1,64 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- navbar section start -->
+    {% comment %} {% include "dashboard/includes/admin_navbar.html" %} {% endcomment %}
+<!-- navbar section end -->
+    
+<!-- Login section start -->
+    <main class="d-flex align-items-center justify-content-center vh-100">
+        <div class="login-container">
+            <div class="card-bg shadow p-4 border-0 rounded-4">
+                <div class="text-center">
+                    <img class="mb-3" src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" width="150px">
+                    <h2 class="fw-bold text-white">Welcome Back</h2>
+                    <p class="custom-text-muted">Sign in to your account!</p>
+                </div>
+
+                <form action="{% url 'Admin_Login' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3 position-relative">
+                        <label for="name" class="form-label text-white">User Name</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="name" name="username" placeholder="Enter your User Name" required>
+                        </div>
+                    </div>
+    
+                    <div class="mb-3 position-relative">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="form-check">
+                            
+                        </div>
+                        <a href="#" class="text-decoration-none custom-text-primary">Forgot password?</a>
+                    </div>
+
+                    <button class="btn btn-primary w-100 btn-lg">Sign In</button>
+                </form>
+
+                <div class="text-center mt-3">
+                    <p class="custom-text-muted">Don't have an account? <a href="{% url 'Admin_Register' %}" class="custom-text-primary">Register</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+<!-- Login section ends -->
+
+{% endblock content %}
+
+{% block custom_js %}
+
+    {% for message in messages %}
+        <script>
+            window.onload = function(){
+                alert('{{message}}')
+            }
+        </script>
+    {% endfor %}
+{% endblock custom_js %}
