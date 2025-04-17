@@ -16,7 +16,7 @@
                     <p class="custom-text-muted">Sign in to your account!</p>
                 </div>
 
-                <form action="{% url 'Admin_Login' %}" method="POST">
+                <form action="{% url 'admin_dashboard:Admin_Login' %}" method="POST">
                     {% csrf_token %}
                     <div class="mb-3 position-relative">
                         <label for="name" class="form-label text-white">User Name</label>
@@ -43,7 +43,7 @@
                 </form>
 
                 <div class="text-center mt-3">
-                    <p class="custom-text-muted">Don't have an account? <a href="{% url 'Admin_Register' %}" class="custom-text-primary">Register</a></p>
+                    <p class="custom-text-muted">Don't have an account? <a href="{% url 'admin_dashboard:Admin_Register' %}" class="custom-text-primary">Register</a></p>
                 </div>
             </div>
         </div>
@@ -53,12 +53,16 @@
 {% endblock content %}
 
 {% block custom_js %}
-
-    {% for message in messages %}
-        <script>
-            window.onload = function(){
-                alert('{{message}}')
-            }
-        </script>
-    {% endfor %}
+    <script>
+        {% if messages %}
+            {% for message in messages %}
+                Swal.fire({
+                    icon: '{% if message.tags == "success" %}success{% elif message.tags == "error" %}error{% elif message.tags == "warning" %}warning{% else %}info{% endif %}',
+                    title: '{{ message.tags|title }}',
+                    text: '{{ message }}',
+                    confirmButtonColor: '#3085d6'
+                });
+            {% endfor %}
+        {% endif %}
+    </script>
 {% endblock custom_js %}

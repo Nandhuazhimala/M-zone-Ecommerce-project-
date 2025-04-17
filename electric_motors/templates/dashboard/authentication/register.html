@@ -16,7 +16,7 @@
                     <p class="custom-text-muted">Join Mzone today!</p>
                 </div>
 
-                <form action="{% url 'Admin_Register' %}" method="POST" >
+                <form action="{% url 'admin_dashboard:Admin_Register' %}" method="POST" >
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="name" class="form-label text-white">Full Name</label>
@@ -46,7 +46,7 @@
                     <button class="btn btn-primary w-100 py-2">Register</button>
 
                     <div class="text-center mt-3">
-                        <p class="custom-text-muted">Already have an account? <a href="{% url 'Admin_Login' %}" class="custom-text-primary">Sign in</a></p>
+                        <p class="custom-text-muted">Already have an account? <a href="{% url 'admin_dashboard:Admin_Login' %}" class="custom-text-primary">Sign in</a></p>
                     </div>
                 </form>
             </div>
@@ -57,20 +57,16 @@
 {% endblock content %}
 
 {% block custom_js %}
-
-{% for message in messages %}
     <script>
-        window.onload = function(){
-            alert('{{message}}')
-        }
+        {% if messages %}
+            {% for message in messages %}
+                Swal.fire({
+                    icon: '{% if message.tags == "success" %}success{% elif message.tags == "error" %}error{% elif message.tags == "warning" %}warning{% else %}info{% endif %}',
+                    title: '{{ message.tags|title }}',
+                    text: '{{ message }}',
+                    confirmButtonColor: '#3085d6'
+                });
+            {% endfor %}
+        {% endif %}
     </script>
-{% endfor %}
-
-{% endblock %}
-
-{% comment %} <div class="form-check mb-3">
-    <input type="checkbox" class="form-check-input" id="terms" name="terms_agreement" required>
-    <label class="form-check-label text-white" for="terms">
-        I agree to the <a href="#" class="custom-text-primary">Terms & Conditions</a>
-    </label>
-</div> {% endcomment %}
+{% endblock custom_js %}

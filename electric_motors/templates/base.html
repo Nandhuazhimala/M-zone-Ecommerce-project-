@@ -81,7 +81,10 @@
     <script src="{% static 'js/swiper.js' %}"></script>
     <script src="{% static 'js/custom-marquee.js' %}"></script>
     <script src="{% static 'js/custom-swiper-2.js' %}"></script>
-    {% comment %} <script src="{% static 'js/form.js' %}"></script> {% endcomment %}
+    <script src="{% static 'js/form.js' %}"></script>
+    {% block custom_js %}
+
+    {% endblock %}
 </body>
 
 

@@ -7,3 +7,10 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+# Notification Count
+
+class Notification(models.Model):
+    message = models.TextField()
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)

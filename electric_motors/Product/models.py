@@ -37,15 +37,15 @@ class Vehicles(models.Model):
     def __str__(self):
         return self.vehicle_name
     
-# class Contact(models.Model):
-#     name= models.CharField(max_length=100)
-#     email=models.EmailField()
-#     phone=models.CharField(max_length=15)
-#     message=models.TextField()
-#     created_at=models.DateTimeField(auto_now_add=True)
+class Contact(models.Model):
+    name= models.CharField(max_length=100)
+    email=models.EmailField()
+    phone=models.CharField(max_length=15)
+    message=models.TextField()
+    created_at=models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
     
 # class VehicleVariant(models.Model):
 #     vehicle_variant_id = models.AutoField(primary_key=True)

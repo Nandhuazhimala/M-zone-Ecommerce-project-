@@ -1,0 +1,68 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+    <!-- Form starts here -->
+    
+    <main class="d-flex align-items-center justify-content-center min-vh-100 w-100">
+        <div class="vehicle-form-container container-fluid p-0 h-100">
+            <div class="card-bg shadow-lg p-5 border-0 rounded-0 vehicle-form-card w-100 h-100">
+                <div class="text-center mb-4">
+                    <img class="mb-3" src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" width="120px">
+                    <h2 class="fw-bold vehicle-form-heading">User Enquiry Details</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr class="text-center">
+                                <th scope="col">SL</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Message</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-light">>
+                            {% for user in user_data %}
+                            <tr>
+                                <th scope="row" class="text-center">{{ user.id }}</th>
+                                <td >{{ user.name }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.phone }}</td>
+                                <td>{{ user.message }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    
+    
+    
+    
+    
+{% endblock content %}
+{% block custom_js %}
+    <script>
+        {% if messages %}
+            {% for message in messages %}
+                Swal.fire({
+                    icon: '{% if message.tags == "success" %}success{% elif message.tags == "error" %}error{% elif message.tags == "warning" %}warning{% else %}info{% endif %}',
+                    title: '{{ message.tags|title }}',
+                    text: '{{ message }}',
+                    confirmButtonColor: '#3085d6'
+                });
+            {% endfor %}
+        {% endif %}
+    </script>
+
+{% endblock custom_js %}
