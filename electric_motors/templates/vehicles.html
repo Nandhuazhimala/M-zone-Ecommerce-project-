@@ -10,114 +10,84 @@
     <section>
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-4 text-center">
-                    <div class="bg-grey p-4 rounded-20px relative hover text-center">
-                        <a href="{% url 'Vehicles_Data' %}">
-                            <img src="{% static 'images/misc/4.webp' %}" class="w-100 relative z-1000 hover-scale-1-2" alt="no image">
-                            <img src="{% static 'images/misc/10.webp' %}" class="absolute start-10 top-10 w-20" alt="no image">
-                        </a>
+                {% for vehicles in vehicle_data %}
+                    <div class="col-lg-4 text-center">
+                        <div class="bg-grey p-4 rounded-20px relative hover text-center">
+                            <a href="{% url 'Vehicles_Data' vehicles.vehicle_id %}">
+                                <img src="{{vehicles.vehicle_image.url}}" class="w-100 relative z-1000 hover-scale-1-2" alt="no image">
+                                {% comment %} <img src="{% static 'images/misc/10.webp' %}" class="absolute start-10 top-10 w-20" alt="no image"> {% endcomment %}
+                            </a>
 
-                        <div class="row mt-3 g-2 relative z-1000">
-                            <div class="col-4">
-                                <div class="bg-white rounded-5px lh-1-2em py-2">
-                                    <div class="fw-bold text-dark">100 KM</div>
-                                    <div class="fs-14">Range</div>
+                            <div class="row mt-3 g-2 relative z-1000">
+                                <div class="col-4">
+                                    <div class="bg-white rounded-5px lh-1-2em py-2">
+                                        <div class="fw-bold text-dark">{{vehicles.vehicle_range}} KM</div>
+                                        <div class="fs-14">Range</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="bg-white rounded-5px lh-1-2em py-2">
+                                        <div class="fw-bold text-dark">{{vehicles.vehicle_top_speed}} Km/h</div>
+                                        <div class="fs-14">Top Speed</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="bg-white rounded-5px lh-1-2em py-2">
+                                        <div class="fw-bold text-dark">{{vehicles.vehicle_motor_power}} Watt</div>
+                                        <div class="fs-14">Motor Power</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <div class="bg-white rounded-5px lh-1-2em py-2">
-                                    <div class="fw-bold text-dark">70 Km/h</div>
-                                    <div class="fs-14">Top Speed</div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="bg-white rounded-5px lh-1-2em py-2">
-                                    <div class="fw-bold text-dark">3000 Watt</div>
-                                    <div class="fs-14">Motor Power</div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="absolute w-100 h-100 start-0 top-0 rounded-10px hover-bg-color"></div>
-                    </div>                            
-                    <h4 class="mt-3 mb-1">Mzone R100</h4>
-                                             
-                    
-
-                    <a class="btn-main" href="https://wa.me/919961467400">Whatsapp Now</a>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <div class="bg-grey p-4 rounded-20px relative hover text-center">
-                        <a href="{% url 'Vehicles_Data' %}">
-                            <img src="{% static 'images/misc/m2.webp' %}" class="w-100 relative z-1000 hover-scale-1-2" alt="no image">
-                            <img src="{% static 'images/misc/10.webp' %}" class="absolute start-10 top-10 w-20" alt="no image">
-                        </a>
-
-                        <div class="row mt-3 g-2 relative z-1000">
-                            <div class="col-4">
-                                <div class="bg-white rounded-5px lh-1-2em py-2">
-                                    <div class="fw-bold text-dark">130 KM</div>
-                                    <div class="fs-14">Range</div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="bg-white rounded-5px lh-1-2em py-2">
-                                    <div class="fw-bold text-dark">100 Km/h</div>
-                                    <div class="fs-14">Top Speed</div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="bg-white rounded-5px lh-1-2em py-2">
-                                    <div class="fw-bold text-dark">3500 Watt</div>
-                                    <div class="fs-14">Motor Power</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="absolute w-100 h-100 start-0 top-0 rounded-10px hover-bg-color"></div>
+                            <div class="absolute w-100 h-100 start-0 top-0 rounded-10px hover-bg-color"></div>
+                        </div>                            
+                        <h4 class="mt-3 mb-1">
+                            {% if vehicles.vehicle_status %}
+                                <span class="bg-color me-2 fs-15 px-2 rounded-5px text-uppercase anim-op-blink-to-light">
+                                    New
+                                </span>
+                            {% endif %}
+                            {{vehicles.vehicle_name}}
+                        </h4>
                     </div>
-                    <h4 class="mt-3 mb-1"><span class="bg-color me-2 fs-16 px-2 rounded-5px text-uppercase anim-op-blink-to-light">New</span>Mzone R200</h4>
-                    
-                    
-
-                    <a class="btn-main" href="https://wa.me/919961467400">Whatsapp Now</a>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <div class="bg-grey p-4 rounded-20px relative hover text-center">
-                        <a href="{% url 'Vehicles_Data' %}">
-                            <img src="{% static 'images/misc/m3.webp' %}" class="w-100 relative z-1000 hover-scale-1-2" alt="no image">
-                            <img src="{% static 'images/misc/10.webp' %}" class="absolute start-10 top-10 w-20" alt="no image">
-                        </a>
-
-                        <div class="row mt-3 g-2 relative z-1000">
-                            <div class="col-4">
-                                <div class="bg-white rounded-5px lh-1-2em py-2">
-                                    <div class="fw-bold text-dark">150 KM</div>
-                                    <div class="fs-14">Range</div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="bg-white rounded-5px lh-1-2em py-2">
-                                    <div class="fw-bold text-dark">120 Km/h</div>
-                                    <div class="fs-14">Top Speed</div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="bg-white rounded-5px lh-1-2em py-2">
-                                    <div class="fw-bold text-dark">4000 Watt</div>
-                                    <div class="fs-14">Motor Power</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="absolute w-100 h-100 start-0 top-0 rounded-10px hover-bg-color"></div>
-                    </div>
-                    <h4 class="mt-3 mb-1">Mzone R300</h4>
-                    
-                    
-
-                    <a class="btn-main" href="https://wa.me/919961467400">Whatsapp Now</a>
-                </div>
+                {% endfor %}
+            </div>
+            <!-- Pagination Controls -->
+        
+            <div class="pagination mt-4 d-flex justify-content-end">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination mb-0">
+                        <!-- Previous -->
+                        {% if page_data.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_data.previous_page_number }}">&laquo;</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+                        {% endif %}
+            
+                        <!-- Dynamic middle page numbers -->
+                        {% for num in page_data.paginator.page_range %}
+                            {% if num >= page_data.number|add:'-1' and num <= page_data.number|add:'1' %}
+                                {% if num == page_data.number %}
+                                    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                                {% else %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+            
+                        <!-- Next -->
+                        {% if page_data.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_data.next_page_number }}">&raquo;</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+                        {% endif %}
+            
+                    </ul>
+                </nav>
             </div>
         </div>
     </section>

@@ -20,7 +20,7 @@
         <aside id="sidebar">
             <div class="d-flex justify-content-between p-4">
                 <div class="sidebar-logo">
-                    <a href="#"><img src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" style="height: 40px;"></a>
+                    <a href="{% url 'Home_Page' %}" target='_blank'><img src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" style="height: 40px;"></a>
                 </div>
                 <button class="toggle-btn border-0" type="button">
                     <i id="icon" class='bx bxs-chevrons-right'></i>
@@ -34,16 +34,16 @@
                         <span>Profile</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                {% comment %} <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
                         <i class='bx bxs-home' ></i>
                         <span>Task</span>
                     </a>
-                </li>
+                </li> {% endcomment %}
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                         <i class='bx bxs-bug-alt' ></i>
-                        <span>Auth</span>
+                        <span>Authentication</span>
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         {% comment %} <li class="sidebar-item">
@@ -57,7 +57,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="register.html" class="sidebar-link">
+                            <a href="{% url 'admin_dashboard:Change_Password' %}" class="sidebar-link">
                                 Change Password
                             </a>
                         </li>
@@ -71,7 +71,7 @@
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
                             <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
-                            Two Links
+                            Vehicles
                             </a>
                             <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
                                 <li class="sidebar-item">
@@ -91,7 +91,7 @@
                     </a>
                 </i>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="{% url 'admin_dashboard:Setting' %}" class="sidebar-link">
                         <i class='bx bxs-cog' ></i>
                         <span>Setting</span>
                     </a>
@@ -108,42 +108,7 @@
             {% block content %}
             
             {% endblock content %}
-            <!-- navbar -->
              
-            
-            <!-- footer section -->
-            {% comment %} <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-body-secondary align-items-center">
-                        <!-- Left: Logo -->
-                        <div class="col-4 text-start d-flex align-items-center">  
-                            <a href="#" class="text-body-secondary">
-                                <img src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" class="me-2" style="height: 30px;">
-                            </a>
-                        </div>
-                        <!-- Center: Copyright -->
-                        <div class="col-4 text-center">
-                            <p class="mb-0">&copy; 2025 Mzone. All Rights Reserved. <br>Designed & Developed : Nandakumar</p>
-
-                        </div>
-                        <!-- Right: Links -->
-                        <div class="col-4 text-end d-md-block">
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-light">About</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-light">Contact</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-light">Terms & Conditions</a>
-                                </li>
-                            </ul>
-                        </div>                        
-                    </div>
-                </div>
-            </footer> {% endcomment %}
-            
         </div>
     </div>
     
@@ -151,6 +116,7 @@
 <!-- Js Section -->
 <!-- chartjs link -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.25/dist/sweetalert2.all.min.js"></script>

@@ -1,14 +1,9 @@
 {% load static %}
 <!-- navbar section start -->
 <nav class="navbar navbar-expand px-4 py-3">
-    <form action="#" class="d-none d-sm-inline-block">
-        <div class="input-group input-group-navbar">
-            <input type="text" class="form-control border-0 rounded-0 pe-0" placeholder="Search" aria-label="Search">
-            <button class="btn border-0 rounded-0" type="button">
-                <i class='bx bx-search' ></i>
-            </button>
-        </div>
-    </form>
+    <div class="input-group input-group-navbar">
+        <a href="{% url 'Home_Page' %}" target='_blank'><img class="bg-dark p-1 rounded" src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" style="height: 40px;"></a> 
+    </div>
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav ms-auto">
             <div class="nav-item dropdown">
@@ -27,16 +22,20 @@
                         <i class='bx bx-data' ></i>
                         <span>Analytics</span>
                     </a> {% endcomment %}
-                    <a href="#" class="dropdown-item">
+                    <a href="{% url 'admin_dashboard:Setting' %}" class="dropdown-item">
                         <i class='bx bx-cog' ></i>
                         <span>Setting</span>
+                    </a>
+                    <a href="{% url 'admin_dashboard:Change_Password' %}" class="dropdown-item">
+                        <i class='bx bx-lock-alt'></i>
+                        <span>Change Password</span>
                     </a>
                     <a href="{% url 'admin_dashboard:Admin_logout' %}" class="dropdown-item">
                         <i class='bx bx-log-out' ></i>
                         <span>Logout</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
+                    <a href="{% url 'admin_dashboard:Help_Center' %}" class="dropdown-item">
                         <i class='bx bx-help-circle' ></i>
                         <span>Help Center</span>
                     </a>

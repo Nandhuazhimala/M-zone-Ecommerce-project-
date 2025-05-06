@@ -10,7 +10,29 @@
             <div class="mb-3">
                 <h3 class="fw-bold fs-4 mb-3">Admin Dashboard</h3>
                 <div class="row">
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6">
+                        <div class="card shadow">
+                            <div class="card-body py-4">
+                                <h6 class="mb-2 fw-bold">Vehicle Overview</h6>
+                                <p class="fw-bold mb-2">Current Inventory Count in {{month_name}} - {{year}}</p>
+                                <div class="mb-0">
+                                    <span class="badge text-success me-2" style="font-size: 1.2rem;">{{vehicle_count}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card shadow">
+                            <div class="card-body py-4">
+                                <h6 class="mb-2 fw-bold">Customer Enquiries</h6>
+                                <p class="fw-bold mb-2">Total Enquiries in {{month_name}} - {{year}}</p>
+                                <div class="mb-0">
+                                    <span class="badge text-success me-2" style="font-size: 1.2rem;">{{customer_count}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} <div class="col-12 col-md-4">
                         <div class="card shadow">
                             <div class="card-body py-4">
                                 <h6 class="mb-2 fw-bold">Member Progress</h6>
@@ -22,34 +44,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-4">
-                        <div class="card shadow">
-                            <div class="card-body py-4">
-                                <h6 class="mb-2 fw-bold">Member Progress</h6>
-                                <p class="fw-bold mb-2">₹ 891,891.00</p>
-                                <div class="mb-0">
-                                    <span class="badge text-success me-2" style="font-size: 1.2rem;">+9.0%</span>
-                                    <span class="fw-bold">Since Last Month</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="card shadow">
-                            <div class="card-body py-4">
-                                <h6 class="mb-2 fw-bold">Member Progress</h6>
-                                <p class="fw-bold mb-2">₹ 891,891.00</p>
-                                <div class="mb-0">
-                                    <span class="badge text-success me-2" style="font-size: 1.2rem;">+9.0%</span>
-                                    <span class="fw-bold">Since Last Month</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> {% endcomment %}
                 <!--content 2  -->
                 <div class="row">
-                    <div class="col-12 col-md-7">
+                    <div class="col-12 col-md-12">
                         <h3 class="fw-bold fs-4 my-3">Users</h3>
                         <table class="table table-striped">
                             <thead>
@@ -115,22 +113,14 @@
                                         <span class="page-link custom-pagination">&raquo;</span>
                                     </li>
                                 {% endif %}
-                                {% comment %} <li class="page-item"><a class="page-link custom-pagination" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link custom-pagination" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link custom-pagination" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link custom-pagination" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li> {% endcomment %}
                             </ul>
                         </nav>
                         
                     </div>
-                    <div class="col-12 col-md-5">
+                    {% comment %} <div class="col-12 col-md-5">
                         <h3 class="fw-bold fs-4 my-3">Reports Overview</h3>
                         <canvas id="bar-chart" width="800" height="450"></canvas>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>

@@ -21,6 +21,7 @@ class Vehicles(models.Model):
     vehicle_image=models.ImageField(upload_to='vehicle_image')
     vehicle_product_short_desc = models.CharField(max_length=255,null=True)
     vehicle_product_desc = models.TextField(default=None, null=True)
+    vehicle_motor_type = models.CharField(max_length=255,null=True)
     vehicle_range = models.IntegerField(validators=[MinValueValidator(0)])
     vehicle_top_speed = models.IntegerField(validators=[MinValueValidator(0)])
     vehicle_motor_power = models.IntegerField(validators=[MinValueValidator(0)])

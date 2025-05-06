@@ -22,14 +22,13 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Message</th>
-                                <th scope="col">Status</th>
                             </tr>
                         </thead>
-                        <tbody class="table-light">>
+                        <tbody class="table-light">
                             {% for user in user_data %}
                             <tr>
-                                <th scope="row" class="text-center">{{ user.id }}</th>
-                                <td >{{ user.name }}</td>
+                                <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                                <td>{{ user.name }}</td>
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.phone }}</td>
                                 <td>{{ user.message }}</td>
@@ -38,18 +37,10 @@
                         </tbody>
                     </table>
                 </div>
-                
-                
-                </div>
             </div>
         </div>
     </main>
-    
-    
-    
-    
-    
-    
+
 {% endblock content %}
 {% block custom_js %}
     <script>

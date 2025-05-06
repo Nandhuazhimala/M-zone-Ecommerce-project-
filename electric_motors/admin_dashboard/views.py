@@ -5,6 +5,8 @@ from . models import Profile
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from Product. models import *
+from django.utils.timezone import now
+import calendar
 
 # Create your views here.
 
@@ -18,17 +20,14 @@ def admin_login(request):
         if user is not None:
             if user.is_superuser:
                 auth.login(request, user)
-                messages.success(request, " Admin Logged Successfully!!")
+                messages.success(request, " Welcome, Admin! You've logged in successfully!")
                 return redirect('admin_dashboard:Admin_Dashboard')
             else:
                 auth.login(request, user)
-                messages.success(request, f"{user.username} is Logged Successfully!!")
+                messages.success(request, f"Good to see you, {user.username}! You’ve successfully logged in!")
                 return redirect('admin_dashboard:Admin_Dashboard')
-        elif not request.user.is_authenticated:
-            return redirect('admin_dashboard:Admin_Login')
-        
         else:
-            messages.error(request, 'Username or Password is Incorrect.')
+            messages.error(request, 'Oops! That username or password doesn’t look right. Please try again.')
             return redirect('admin_dashboard:Admin_Login')    
     return render(request,'dashboard/authentication/login.html')
 
@@ -59,10 +58,9 @@ def admin_register(request):
             user.save()
             
             # Save profile image 
-            if Profile_img:
-                Profile.objects.create(user=user, profile_picture=Profile_img)
+            Profile.objects.create(user=user, profile_picture=Profile_img)
 
-            messages.success(request, "Account created successfully!")
+            messages.success(request, "Account creation complete! You’re ready to get started.")
             return redirect('admin_dashboard:Admin_Login')
         except Exception as e:
                 messages.error(request, f"Something went wrong: {str(e)}")
@@ -74,25 +72,41 @@ def admin_register(request):
 @login_required(login_url='admin_dashboard:Admin_Login')
 def admin_logout(request):
     auth.logout(request)
-    messages.success(request, 'Successfully Logout!')
+    messages.success(request, 'Goodbye! You’ve successfully logged out.')
     return redirect('admin_dashboard:Admin_Login')
 
 # Admin Dashboard Section
+@login_required(login_url='admin_dashboard:Admin_Login')
 def admin_dashboard(request):
-    try:
-        user_profile = Profile.objects.get(user=request.user)
-        # vehicle_data=Vehicles.objects.all()
-    except Profile.DoesNotExist:
-        user_profile = None
+    # User name and Profile img 
+    user_profile, created = Profile.objects.get_or_create(user=request.user)
+    
     # Paginator setting
     vehicle_queryset = Vehicles.objects.order_by('created_at')
     page=Paginator(vehicle_queryset,3)
     page_number=request.GET.get('page')
     vehicle_list=page.get_page(page_number)
+
+    # Total vehicle Count get
+    total_count=Vehicles.objects.count()
+
+    # Customer Enquiries Count
+      
+    # calculate mounth count
+    today=now()
+    month=today.month
+    year=today.year
+    customer_count=Contact.objects.filter(created_at__year=year,created_at__month=month).count()
+    # Month Name
+    month_name=calendar.month_name[month]
+
     context = {
         'data': user_profile,
-        # 'vehicles':vehicle_data,
         'page_number':vehicle_list,
+        'vehicle_count':total_count,
+        'customer_count':customer_count,
+        'month_name':month_name,
+        'year':year
     }
     return render(request,'dashboard/index.html',context)
 
@@ -107,6 +121,7 @@ def add_vehicle(request):
             vehicle_short_title = request.POST.get("vehicle_short_title")
             vehicle_image = request.FILES.get("vehicle_image")
             vehicle_product_short_desc = request.POST.get("vehicle_product_short_desc")
+            vehicle_motor_type = request.POST.get("vehicle_motor_type")
             vehicle_range = request.POST.get("vehicle_range")
             vehicle_top_speed = request.POST.get("vehicle_top_speed")
             vehicle_motor_power = request.POST.get("vehicle_motor_power")
@@ -123,6 +138,7 @@ def add_vehicle(request):
                 vehicle_short_title=vehicle_short_title,
                 vehicle_image=vehicle_image,
                 vehicle_product_short_desc=vehicle_product_short_desc,
+                vehicle_motor_type=vehicle_motor_type,
                 vehicle_range=vehicle_range,
                 vehicle_top_speed=vehicle_top_speed,
                 vehicle_motor_power=vehicle_motor_power,
@@ -134,7 +150,7 @@ def add_vehicle(request):
                 vehicle_feature_4=vehicle_feature_4,
                 vehicle_status=vehicle_status
             )
-            messages.success(request, "Vehicle added successfully!")
+            messages.success(request, "Vehicle has been successfully added!")
             return redirect("admin_dashboard:Admin_Dashboard")
         except Exception as e:
             messages.error(request, f"Error adding vehicle: {str(e)}")
@@ -155,6 +171,7 @@ def edit_vehicle(request,vehicle_id):
             get_vehicle.vehicle_name = request.POST.get("vehicle_name")
             get_vehicle.vehicle_short_title = request.POST.get("vehicle_short_title")
             get_vehicle.vehicle_product_short_desc = request.POST.get("vehicle_product_short_desc")
+            get_vehicle.vehicle_motor_type = request.POST.get("vehicle_motor_type")
             get_vehicle.vehicle_range = request.POST.get("vehicle_range")
             get_vehicle.vehicle_top_speed = request.POST.get("vehicle_top_speed")
             get_vehicle.vehicle_motor_power = request.POST.get("vehicle_motor_power")
@@ -188,7 +205,7 @@ def delete_vehicle(request,vehicle_id):
     return redirect("admin_dashboard:Admin_Dashboard")
 
 # Get User Enquiry for Vehicle
-
+@login_required(login_url='admin_dashboard:Admin_Login')
 def user_data(request):
     get_user_data=Contact.objects.all()
 
@@ -197,4 +214,43 @@ def user_data(request):
     }
 
     return render(request, 'dashboard/get_user_data.html', context)
+
+# Setting
+@login_required(login_url='admin_dashboard:Admin_Login')
+def setting(request):
+    return render(request,'dashboard/404_page.html')
+
+# help_center
+@login_required(login_url='admin_dashboard:Admin_Login')
+def help_center(request):
+    return render(request,'dashboard/404_page.html')
+
+# Change User password
+@login_required(login_url='admin_dashboard:Admin_Login')
+def change_password(request):
+    # currently logged-in user
+    user = request.user
+
+    # data get
+    if request.method == 'POST':
+        Current_password = request.POST.get('current_password')
+        New_password = request.POST.get('new_password')
+        Confirm_password = request.POST.get('confirm_password')
+
+        # Current Password checking
+        if not user.check_password(Current_password):
+            messages.error(request, "Oops! The password you entered is invalid. Please check and try again.")
+            return redirect('admin_dashboard:Change_Password') 
+        
+        # New and Confirm Password does not match
+        if New_password != Confirm_password:
+            messages.error(request, "Oops! Your new password and confirm password don't match. Please re-check them.")
+            return redirect('admin_dashboard:Change_Password')
+        
+        user.set_password(New_password)
+        user.save()
+        messages.success(request, "Your password has been updated. Please log in again to continue.")
+        return redirect('admin_dashboard:Admin_Login')
+
+    return render(request,'dashboard/authentication/change_password.html')
         

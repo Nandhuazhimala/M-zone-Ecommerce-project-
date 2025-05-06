@@ -2,9 +2,7 @@
 {% load static %}
 
 {% block content %}
-<!-- navbar section start -->
-    {% include "dashboard/includes/admin_navbar.html" %}
-<!-- navbar section end -->
+
     
 <!-- Register section start -->
     <main class="d-flex align-items-center justify-content-center min-vh-100 py-4">
@@ -16,7 +14,7 @@
                     <p class="custom-text-muted">Join Mzone today!</p>
                 </div>
 
-                <form action="{% url 'admin_dashboard:Admin_Register' %}" method="POST" >
+                <form action="{% url 'admin_dashboard:Admin_Register' %}" method="POST" enctype="multipart/form-data" >
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="name" class="form-label text-white">Full Name</label>

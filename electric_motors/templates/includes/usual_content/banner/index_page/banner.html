@@ -7,7 +7,7 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            {% for data in vehicle_data %}
+            {% for vehicles in vehicle_data %}
                 <div class="swiper-slide">
                     <div class="swiper-inner" data-bgimage="url({% static 'images/slider/1.webp' %})">
                         <div class="sw-caption">
@@ -19,42 +19,42 @@
                                     <div class="col-lg-6">     
                                         <div class="spacer-single"></div>
                                         <div class="sw-text-wrapper">
-                                            <div class="subtitle s2 mb-2"><i class="icofont-badge id-color me-2"></i>{{data.vehicle_short_title}}</div>
-                                            <h1 class="slider-title mb-2">{{data.vehicle_name}}</h1>
-                                            <h3 class="slider-teaser mb-3">{{data.vehicle_product_short_desc}}</h3>
+                                            <div class="subtitle s2 mb-2"><i class="icofont-badge id-color me-2"></i>{{vehicles.vehicle_short_title}}</div>
+                                            <h1 class="slider-title mb-2">{{vehicles.vehicle_name}}</h1>
+                                            <h3 class="slider-teaser mb-3">{{vehicles.vehicle_product_short_desc}}</h3>
                                             <div class="slider-extra">
                                                 <div class="row mt-3 g-2 text-center">
                                                     <div class="col-4">
                                                         <div class="bg-dark rounded-10px lh-1-2em p-2">
                                                             <i class="fs-40 mb-1 id-color icofont-map-pins"></i>
-                                                            <div class="fs-18 fw-bold">{{data.vehicle_range}} KM</div>
+                                                            <div class="fs-18 fw-bold">{{vehicles.vehicle_range}} KM</div>
                                                             <div class="fs-14 op-5">Range</div>
                                                         </div>
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="bg-dark rounded-10px lh-1-2em p-2">
                                                             <i class="fs-40 mb-1 id-color icofont-dashboard"></i>
-                                                            <div class="fs-18 fw-bold">{{data.vehicle_top_speed}} Km/h</div>
+                                                            <div class="fs-18 fw-bold">{{vehicles.vehicle_top_speed}} Km/h</div>
                                                             <div class="fs-14 op-5">Top Speed</div>
                                                         </div>
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="bg-dark rounded-10px lh-1-2em p-2">
                                                             <i class="fs-40 mb-1 id-color icofont-thunder-light"></i>
-                                                            <div class="fs-18 fw-bold">{{data.vehicle_motor_power}} Watt</div>
+                                                            <div class="fs-18 fw-bold">{{vehicles.vehicle_motor_power}} Watt</div>
                                                             <div class="fs-14 op-5">Motor Power</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="spacer-30"></div>
-                                            <a class="btn-main mb10 mb-3" href="{% url 'Vehicles_Data' %}">View Specifications</a>
+                                            <a class="btn-main mb10 mb-3" href="{% url 'Vehicles_Data' vehicles.vehicle_id %}">View Specifications</a>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="slider-extra">
-                                            <img src="{{data.vehicle_image.url}}" class="img-fluid" alt="No Image">
+                                            <img src="{{vehicles.vehicle_image.url}}" class="img-fluid" alt="No Image">
                                         </div>
                                     </div>
 

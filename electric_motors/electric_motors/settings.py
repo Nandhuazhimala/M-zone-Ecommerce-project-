@@ -80,7 +80,7 @@ DATABASES = {
     
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mzone',      # Replace with your database name
+        'NAME': 'mzone_project',      # Replace with your database name
         'USER': 'root',         # Replace with your MySQL user
         'PASSWORD': 'Nandakumar@97', # Replace with your MySQL password
         'HOST': 'localhost',      # Default host
@@ -127,8 +127,8 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-MEDIA_ROOT=os.path.join(BASE_DIR/'media/')
-MEDIA_URL='media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

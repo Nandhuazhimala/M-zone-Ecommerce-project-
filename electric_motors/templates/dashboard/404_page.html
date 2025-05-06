@@ -1,0 +1,21 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <main class="d-flex align-items-center justify-content-center min-vh-100 w-100">
+        <div class="vehicle-form-container container-fluid p-0 h-100">
+            <div class="card-bg shadow-lg p-5 border-0 rounded-0 vehicle-form-card w-100 h-100 text-center">
+                <div class="mb-4">
+                    <img class="mb-3" src="{% static 'admin_panel/images/logo.png' %}" alt="Mzone Logo" width="120px">
+                </div>
+                <div class="mb-4">
+                    <h1 class="display-1 fw-bold text-white" style="font-size: 8rem;">404</h1>
+                    <h2 class="fw-bold text-white">Page Not Found</h2>
+                    <p class="lead text-white">Sorry, the page you’re looking for doesn’t exist or has been moved.</p>
+                    <a href="{% url 'admin_dashboard:Admin_Dashboard' %}" class="btn btn-primary mt-3 px-4 py-2">Back to Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

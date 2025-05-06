@@ -35,8 +35,8 @@
                         <div class="widget">
                             <h5>Our Products</h5>
                             <ul>
-                                {% for data in vehicle_data %}
-                                    <li><a href="{% url 'Vehicles_Data' %}">{{data.vehicle_name}}</a></li>
+                                {% for data in footer_data %}
+                                    <li><a href="{% url 'Vehicles_Data' data.vehicle_id %}">{{data.vehicle_name}}</a></li>
                                 {% endfor %}
                                 
                                 {% comment %} <li><a href="{% url 'Vehicles_Data' %}">Mzone R200</a></li>
